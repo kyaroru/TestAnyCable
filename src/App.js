@@ -1,34 +1,37 @@
 import logo from "./logo.svg";
 import "./App.css";
 import CableService from "./cable";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+let mycable = null;
 
 function App() {
-  let cable = null;
+  const [connected, setConnected] = useState(false);
   useEffect(() => {
     const url = "wss://ws-demo-app-anycable.herokuapp.com/cable";
-    cable = new CableService(url);
+    mycable = new CableService(url, setConnected);
 
     return () => {
       // Similar to componentWillUnmount()
-      cable.disconnect();
+      mycable.disconnect();
     };
   }, []); // use [] so it only run once
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <p>AnyCable connected: {connected ? "true" : "false"}</p>
+        <button
+          disabled={!connected}
+          onClick={(e) => {
+            e.preventDefault();
+            if (mycable) {
+              mycable.sendToken("hello123456abc");
+            }
+          }}
         >
-          Learn React
-        </a>
+          Send Token
+        </button>
       </header>
     </div>
   );

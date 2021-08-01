@@ -23,18 +23,22 @@ class MessageChannel extends Channel {
 export default class CableService {
   cable;
   channel;
-  connected;
+  setConnected;
 
-  constructor(url) {
+  constructor(url, setConnected) {
     this.cable = createCable(url);
     this.channel = new MessageChannel();
+    this.setConnected = setConnected;
     this.init();
   }
 
   async init() {
+    console.log("[AnyCable] Subscribe to MessageChannel now...");
+
     await this.cable.subscribe(this.channel);
-    console.log("[AnyCable] success subscribe to channel: ");
+    console.log("[AnyCable] Success subscribe to MessageChannel: ");
     console.log(this.channel);
+    this.setConnected(true);
     // const _ = await channel.perform('speak', { msg: 'Hello' })
 
     this.channel.on("message", (msg) => {
@@ -51,5 +55,6 @@ export default class CableService {
     console.log("[AnyCable] disconnecting any cable: ");
     await this.channel.disconnect();
     console.log("[AnyCable] successfully disconnect!");
+    this.setConnected(false);
   }
 }
