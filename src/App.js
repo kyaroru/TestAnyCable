@@ -1,7 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import CableService from "./cable";
+import { useEffect } from "react";
 
 function App() {
+  let cable = null;
+  useEffect(() => {
+    const url = "wss://ws-demo-app-anycable.herokuapp.com/cable";
+    cable = new CableService(url);
+
+    return () => {
+      // Similar to componentWillUnmount()
+      cable.disconnect();
+    };
+  }, []); // use [] so it only run once
   return (
     <div className="App">
       <header className="App-header">

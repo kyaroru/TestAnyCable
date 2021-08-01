@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@anycable/core@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@anycable/core/-/core-0.0.5.tgz#427b1473cf4b3de3ad2b58b3c264cd8092c16b63"
+  integrity sha512-XgPuLcJg3L62Ujoizb6ZtdYYgEG0tt9SmY8xIfURb+csR6L2TEHwoDjb2nSYwAKUOWWmYyfQBX50IVQ2MpMArA==
+  dependencies:
+    nanoevents "^6.0.0"
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -7279,6 +7286,11 @@ nan@^2.12.1:
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
+
+nanoevents@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/nanoevents/-/nanoevents-6.0.0.tgz#82454023f448a1eab0df103df59d5813ac16035b"
+  integrity sha512-0ASElaiZR21yBjhmBiRboCXeNirfIVuiKIxikn6a3H/9zUL+q2HBq+4B3Cb2UdCctoGx5YSwxTXypslD/olJKA==
 
 nanoid@^3.1.20:
   version "3.1.20"
